@@ -1,6 +1,7 @@
 {
+  "outputDirectory": "webapp",
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/(.*)", "dest": "/webapp/index.html" }
   ]
 }
