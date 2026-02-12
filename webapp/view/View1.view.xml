@@ -1,0 +1,60 @@
+<mvc:View
+    controllerName="nw4.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:t='sap.m.TileContainer'
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <List
+            id="idList"
+            items="{/Categories}"
+            selectionChange=".onSelectionChange"
+            mode="MultiSelect"
+            growing="true"
+            growingThreshold="50"
+            includeItemInSelection="true"
+        >
+            <StandardListItem
+                title="{CategoryID}"
+                description="{CategoryName}"
+            />
+        </List>
+        <List
+            headerText="Feed Entries"
+            items="{/Employees}"
+        >
+            <FeedListItem
+                sender="{FirstName}"
+                senderPress="onPress"
+                iconPress="onPress"
+                info="{Title}"
+                timestamp="{BirthDate}"
+                text="{Country}"
+                convertLinksToAnchorTags="All"
+                actions="{path: 'Actions', templateShareable: false}"
+            >
+                <FeedListItemAction
+                    text="{Notes}"
+                    key="{EmployeeID}"
+                    press="onActionPressed"
+                />
+            </FeedListItem>
+        </List>
+        <TileContainer
+			id="container"
+			tileDelete="handleTileDelete"
+			tiles="{/Employees}">
+			<StandardTile
+				number="{PostalCode}"
+				numberUnit="{PostalCode}"
+				title="{Title}"
+                info="Click to open project"
+        press="onTilePress"
+				/>
+		</TileContainer>
+       
+    </Page>
+</mvc:View>
